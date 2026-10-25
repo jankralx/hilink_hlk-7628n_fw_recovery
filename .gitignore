@@ -1,0 +1,2 @@
+# Flash dumps contain vendor firmware and per-module data (MAC addresses)
+*.bin

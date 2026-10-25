@@ -1,0 +1,4 @@
+00000000:0002ffff u-boot
+00030000:0003ffff u-boot-env
+00040000:0004ffff factory
+00050000:01ffffff firmware
