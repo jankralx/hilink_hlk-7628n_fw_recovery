@@ -34,8 +34,12 @@ image: the module would get a duplicate MAC address.
 ![connection](update_connection.svg)
 
 - MOSI, MISO, CLK, CS0 and GND to the Raspberry Pi SPI0 pins as shown.
-- Tie **CPU_RSTn** to GND. This holds the MT7628 in reset so that it does
-  not drive the SPI lines.
+- Tie **CPU_RSTn** to GND. This holds the MT7628 in reset, its SPI pins are
+  then inputs and the Raspberry Pi is the only device driving the flash.
+  Without it, the MT7628 starts booting and reads the flash at the same
+  time, which gives random data or failed writes. Keep it tied for the whole
+  session (reads, compare, write) and release it only after the Raspberry Pi
+  is disconnected.
 - Connect 3.3 V from the Raspberry Pi only if the module is not powered by
   the target board.
 
